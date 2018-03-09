@@ -589,7 +589,7 @@ function dind::run {
          --net kubeadm-dind-net \
          --name "${container_name}" \
          --hostname "${container_name}" \
-         -l mirantis.kubeadm_dind_cluster \
+         -l mirantis.kubeadm_dind_cluster=1 \
          -v ${volume_name}:/dind \
          ${opts[@]+"${opts[@]}"} \
          "${DIND_IMAGE}" \
