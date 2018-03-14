@@ -162,7 +162,7 @@ function dind::install-google-cloud-sdk {
 function dind::ensure-binaries-and-hypokube {
   # avoid race - if binaries need to be fetched,
   # do it in just one container
-  if [[ ${is_master} ]]; then
+  if [[ ${is_master} ]] || [[ ${HYPERKUBE_SOURCE} = gs://* ]]; then
      dind::get-binaries
   fi
   local hyperkube_bin="${binary_dir}/hyperkube"
